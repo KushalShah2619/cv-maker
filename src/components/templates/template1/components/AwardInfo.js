@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, Card, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./CompStyle.css";
 
 class AwardInfo extends Component {
   handleAddAwardBlock = () => {
@@ -103,16 +104,27 @@ class AwardInfo extends Component {
   };
 
   render() {
+    const bgcolor = {
+      backgroundColor: "#202020",
+      color: "white",
+      border:"none",
+    }
+    const cardStyle = {
+      boxShadow: "inset 0 0px 4px #303030",
+      backgroundColor: "#202020",
+      color: "white",
+      margin: "10px" 
+    }
     return (
       <div>
         {this.props.awardBlocks.map((value, index) => {
           return (
-            <Card body border="primary" style={{ margin: "10px" }} key={index}>
+            <Card body style={cardStyle} key={index}>
               <Form>
                 <Form.Group controlId="formGroupPos">
                   {" "}
                   {/*Area of Interest*/}
-                  <Form.Control
+                  <Form.Control className="inputStyle" style={bgcolor}
                     type="text"
                     placeholder="Member of X committee from January 2020 to May 2020..."
                     onChange={event => {
@@ -123,14 +135,15 @@ class AwardInfo extends Component {
                 </Form.Group>
               </Form>
               <Button
-                variant="danger"
+                className="remove"
                 onClick={() => {
                   this.handleRemoveAwardBlock(value.id);
                 }}
                 style={{
                   display: "inline-block",
                   float: "left",
-                  margin: "5px"
+                  margin: "5px",
+                  border:"none"
                 }}
               >
                 {" "}
@@ -139,7 +152,8 @@ class AwardInfo extends Component {
             </Card>
           );
         })}
-        <Button variant="primary" onClick={this.handleAddAwardBlock}>
+        <Button className="add"
+         onClick={this.handleAddAwardBlock}>
           {" "}
           +Add{" "}
         </Button>

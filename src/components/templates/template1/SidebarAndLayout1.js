@@ -45,56 +45,66 @@ const SidebarAndLayout1 = props => {
     };
   };
   const [, drop] = useDrop({ accept: "block" });
+  const styles = {
+    backgroundColor : "#202020"
+    
+  }
+  const color = {
+    color : "#fff"
+    
+  }
   return state.isLoading ? (
     <Loader />
   ) : (
     <div>
-      <h3 className="text-center">{props.title}</h3>
-      <div className="sidebar" ref={drop}>
-        <Accordion defaultActiveKey="">
-          <Card>
-            <Accordion.Toggle
-              as={Card.Header}
-              eventKey="0"
-              style={{ paddingLeft: "44px" }}
-            >
-              Upload Image
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body>
-                <ImageInfo id={props.id} />
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
+      <h3 className="text-center cvtitle">{props.title}</h3>
+      <div className="screenView1">
+        <div className="sidebar1" ref={drop} style={color}>
+          <Accordion defaultActiveKey="">
+            <Card className="bgcolor" style={styles}>
+              <Accordion.Toggle
+                as={Card.Header}
+                eventKey="0"
+                style={{ paddingLeft: "44px" }}
+              >
+                Upload Image
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  <ImageInfo id={props.id} />
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
 
-          <Card>
-            <Accordion.Toggle
-              as={Card.Header}
-              eventKey="1"
-              style={{ paddingLeft: "44px" }}
-            >
-              Personal Information
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="1">
-              <Card.Body>
-                <PersonalInfo id={props.id} />
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
-          {blocks.map((block, index) => (
-            <Block
-              key={block.id}
-              id={block.id}
-              cvid={props.id}
-              moveBlock={moveBlock}
-              findBlock={findBlock}
-              eventKey={index + 2}
-            />
-          ))}
-        </Accordion>
-      </div>
-      <div className="template1">
-        <Layout1 />
+            <Card className="bgcolor" style={styles}>
+              <Accordion.Toggle
+                as={Card.Header}
+                eventKey="1"
+                style={{ paddingLeft: "44px" }}
+              >
+                Personal Information
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="1">
+                <Card.Body>
+                  <PersonalInfo id={props.id} />
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+            {blocks.map((block, index) => (
+              <Block
+                key={block.id}
+                id={block.id}
+                cvid={props.id}
+                moveBlock={moveBlock}
+                findBlock={findBlock}
+                eventKey={index + 2}
+              />
+            ))}
+          </Accordion>
+        </div>
+        <div className="template1">
+          <Layout1 />
+        </div>
       </div>
     </div>
   );

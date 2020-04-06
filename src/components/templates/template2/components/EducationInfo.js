@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./compoStyle/componentsStyle.css";
 
 class EducationInfo extends Component {
   handleAddDegreeBlock = e => {
@@ -163,25 +164,35 @@ class EducationInfo extends Component {
   };
 
   render() {
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+    const accordStyle = {
+     boxShadow: "inset 0 -1px 2px #303030"
+    }
     return (
       <div>
         <Accordion defaultActiveKey=" ">
           {this.props.degreeBlocks.map((value, index) => {
             return (
-              <Card key={value.id}>
-                <Accordion.Toggle as={Card.Header} eventKey={index}>
+              <Card key={value.id} style={bgcolor}>
+                <Accordion.Toggle as={Card.Header} eventKey={index} style={accordStyle}>
                   Degree #{index + 1}
                   <Button
-                    className="float-right"
+                    className="float-right remove"
                     size="sm"
-                    variant="danger"
+                
                     onClick={() => {
                       this.handleRemoveBlock(value.id);
                     }}
                     style={{
                       display: "inline-block",
                       float: "left",
-                      margin: "5px"
+                      margin: "5px",
+                      border:"none"
                     }}
                   >
                     {" "}
@@ -194,7 +205,7 @@ class EducationInfo extends Component {
                     <Form>
                       <Form.Group controlId="formGroupYear">
                         <Form.Label>Year</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="2017-2021"
                           onChange={event => {
@@ -206,8 +217,8 @@ class EducationInfo extends Component {
 
                       <Form.Group controlId="formGroupDegreeName">
                         <Form.Label>Degree and College Name</Form.Label>
-                        <Form.Control
-                          type="text"
+                        <Form.Control className="inputStyle" style={bgcolor}
+                          type="text" 
                           placeholder="BTech in Computer Science"
                           onChange={event => {
                             this.handleChangeDegreeName(event, value.id);
@@ -220,7 +231,7 @@ class EducationInfo extends Component {
 
                       <Form.Group controlId="formGroupInstituteName">
                         <Form.Label>Degree and College Name</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="DA-IICT"
                           onChange={event => {
@@ -240,7 +251,7 @@ class EducationInfo extends Component {
         </Accordion>
 
         <Button
-          variant="primary"
+          className="add"
           style={{ margin: "5px" }}
           onClick={this.handleAddDegreeBlock}
         >

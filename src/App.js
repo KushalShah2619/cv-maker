@@ -11,6 +11,7 @@ import CvEditor from "./components/cvs/CvEditor";
 import Feedback from "./components/layout/Feedback";
 import { DndProvider } from "react-dnd";
 import Backend from "react-dnd-html5-backend";
+import './index.css'
 
 function App() {
   return (

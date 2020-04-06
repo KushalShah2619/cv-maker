@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./compoStyle/componentsStyle.css";
 
 class LanguageInfo extends Component {
   handleAddLanguageBlock = () => {
@@ -123,25 +124,34 @@ class LanguageInfo extends Component {
   }
 
   render() {
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+    const accordStyle = {
+     boxShadow: "inset 0 -1px 2px #303030"
+    }
     return (
       <div>
         <Accordion defaultActiveKey=" ">
           {this.props.languageBlocks.map((value, index) => {
             return (
-              <Card key={value.id}>
-                <Accordion.Toggle as={Card.Header} eventKey={index}>
+              <Card key={value.id} style={bgcolor}>
+                <Accordion.Toggle as={Card.Header} eventKey={index} style={accordStyle}>
                   Language #{index + 1}
                   <Button
-                    className="float-right"
+                    className="float-right remove"
                     size="sm"
-                    variant="danger"
                     onClick={() => {
                       this.handleRemoveLanguageBlock(value.id);
                     }}
                     style={{
                       display: "inline-block",
                       float: "left",
-                      margin: "5px"
+                      margin: "5px",
+                      border:"none"
                     }}
                   >
                     {" "}
@@ -154,9 +164,9 @@ class LanguageInfo extends Component {
                     <Form>
                       <Form.Group controlId="formGroupDegreeName">
                         <Form.Label>Language Name</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
-                          placeholder="Leadership"
+                          placeholder="English"
                           onChange={event => {
                             this.handleChangeLanguageName(event, value.id);
                           }}
@@ -169,7 +179,7 @@ class LanguageInfo extends Component {
                       <Form.Group controlId="formGroupLanguageLevel">
                         <Form.Label>Language Level - (Range: 1-5)</Form.Label>
 
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="range"
                           min="1"
                           max="5"
@@ -193,7 +203,7 @@ class LanguageInfo extends Component {
         </Accordion>
 
         <Button
-          variant="primary"
+          className="add"
           style={{ margin: "5px" }}
           onClick={this.handleAddLanguageBlock}
         >

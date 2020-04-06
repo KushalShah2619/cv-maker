@@ -4,6 +4,7 @@ import { Accordion, Card, Form, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
 import Loader from "./../../../loader/Loader";
 import EducationInfoComp from "./EducationInfoComp";
+import "./CompStyle.css";
 
 class EducationInfo extends Component {
   state = { isLoading: false };
@@ -255,7 +256,7 @@ class EducationInfo extends Component {
           })}
         </Accordion>*/}
         <Button
-          variant="primary"
+          className="add"
           onClick={this.handleAddDegreeBlock}
           style={{ marginTop: "10px" }}
         >

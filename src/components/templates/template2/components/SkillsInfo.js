@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Accordion, Form, Card, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./compoStyle/componentsStyle.css";
 
 class SkillsInfo extends Component {
   handleAddSkillBlock = () => {
@@ -123,25 +124,34 @@ class SkillsInfo extends Component {
   }
 
   render() {
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+    const accordStyle = {
+     boxShadow: "inset 0 -1px 2px #303030"
+    }
     return (
       <div>
         <Accordion defaultActiveKey=" ">
           {this.props.skillBlocks.map((value, index) => {
             return (
-              <Card key={value.id}>
-                <Accordion.Toggle as={Card.Header} eventKey={index}>
+              <Card key={value.id} style={bgcolor}>
+                <Accordion.Toggle as={Card.Header} eventKey={index} style={accordStyle}>
                   Skill #{index + 1}
                   <Button
-                    className="float-right"
+                    className="float-right remove"
                     size="sm"
-                    variant="danger"
                     onClick={() => {
                       this.handleRemoveSkillBlock(value.id);
                     }}
                     style={{
                       display: "inline-block",
                       float: "left",
-                      margin: "5px"
+                      margin: "5px",
+                      border:"none"
                     }}
                   >
                     {" "}
@@ -154,7 +164,7 @@ class SkillsInfo extends Component {
                     <Form>
                       <Form.Group controlId="formGroupDegreeName">
                         <Form.Label>Skill Name</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Leadership"
                           onChange={event => {
@@ -167,7 +177,7 @@ class SkillsInfo extends Component {
                       <Form.Group controlId="formGroupSkillLevel">
                         <Form.Label>Skill Level - (Range: 1-5)</Form.Label>
 
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="range"
                           min="1"
                           max="5"
@@ -191,7 +201,7 @@ class SkillsInfo extends Component {
         </Accordion>
 
         <Button
-          variant="primary"
+          className="add"
           style={{ margin: "5px" }}
           onClick={this.handleAddSkillBlock}
         >

@@ -3,6 +3,7 @@ import { useDrag, useDrop } from "react-dnd";
 import { Accordion, Card, Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import Loader from "./../../../loader/Loader";
+import "./CompStyle.css";
 
 const EducationBlock = ({
   id,
@@ -81,14 +82,23 @@ const EducationBlock = ({
     removeBlock(bid, auth.uid, cvid);
     removeOrderOfEducationBlock(id, auth.uid, cvid);
   };
+  const accordStyle = {
+    boxShadow: "inset 0 -1px 2px #303030"
+   }
+   const bgcolor = {
+    backgroundColor:"#202020",
+    margin: "10px 0px",
+    color:"white",
+    border: "none"
+  }
   return (
     <React.Fragment>
       {degreeBlocks
         .filter(e => e.id === id)
         .map(value => {
           return (
-            <Card key={id} ref={preview}>
-              <Accordion.Toggle as={Card.Header} eventKey={eventKey}>
+            <Card key={id} ref={preview} style={bgcolor}>
+              <Accordion.Toggle as={Card.Header} eventKey={eventKey} style={accordStyle}>
                 Degree #{index}
                 <Button
                   className="float-right"
@@ -118,7 +128,7 @@ const EducationBlock = ({
                   <Form>
                     <Form.Group controlId="degreeName">
                       <Form.Label>Degree Name</Form.Label>
-                      <Form.Control
+                      <Form.Control className="inputStyle" style={bgcolor}
                         type="text"
                         placeholder="B.Tech"
                         onChange={event => {
@@ -130,7 +140,7 @@ const EducationBlock = ({
 
                     <Form.Group controlId="formGroupInstituteName">
                       <Form.Label>College Name</Form.Label>
-                      <Form.Control
+                      <Form.Control className="inputStyle" style={bgcolor}
                         type="text"
                         placeholder="Institute name"
                         onChange={event => {
@@ -142,7 +152,7 @@ const EducationBlock = ({
 
                     <Form.Group controlId="formGroupYear">
                       <Form.Label>Year</Form.Label>
-                      <Form.Control
+                      <Form.Control className="inputStyle" style={bgcolor}
                         type="text"
                         placeholder="2017-2021"
                         onChange={event => {
@@ -154,7 +164,7 @@ const EducationBlock = ({
 
                     <Form.Group controlId="formGroupScore">
                       <Form.Label>CPI/AGGREGATE</Form.Label>
-                      <Form.Control
+                      <Form.Control className="inputStyle" style={bgcolor}
                         type="text"
                         placeholder="grade"
                         onChange={event => {

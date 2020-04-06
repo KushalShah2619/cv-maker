@@ -13,11 +13,12 @@ class Layout1 extends Component {
             <tr key={index}>
               <td style={{ textAlign: "left" }}>
                 {" "}
-                <b style={{ fontSize: "18px" }}>{value.degreeName}</b>{" "}
+                <p style={{fontWeight:"bold"}} >{value.degreeName}</p>{" "}
               </td>
-              <td style={{ textAlign: "left" }}> {value.instituteName} </td>
-              <td style={{ textAlign: "left" }}> {value.year} </td>
-              <td style={{ textAlign: "left" }}> {value.score} </td>
+              <td 
+                style={{ textAlign: "left", maxWidth: '250px', wordWrap: 'break-word' }}> <p>{value.instituteName}</p> </td>
+              <td style={{ textAlign: "left" }}><p> {value.year}</p> </td>
+              <td style={{ textAlign: "left" }}> <p>{value.score}</p> </td>
             </tr>
           );
           break;
@@ -38,15 +39,15 @@ class Layout1 extends Component {
             style={{ textAlignVertical: "top", textAlign: "left" }}
           >
             <p>
-              <b style={{ fontSize: "18px" }}>{value.organizationName}</b>
+              <b>{value.organizationName}</b>
             </p>
           </td>
           <td className="w-60" style={{ textAlignVertical: "top" }}>
-            <p style={{ fontSize: "18px" }}>{value.description}</p>
+            <p>{value.description}</p>
 
-            <p style={{ textAlign: "left", fontSize: "18px" }}>
-              <i style={{ fontSize: "18px" }}>
-                <b style={{ fontSize: "18px" }}>Guide:</b> {value.supervisor}
+            <p style={{ textAlign: "left"}}>
+              <i >
+                <b>Guide:</b> <h6 className="text1"> {value.supervisor}</h6>
               </i>
             </p>
           </td>
@@ -55,10 +56,10 @@ class Layout1 extends Component {
             className="w-20"
             style={{ textAlignVertical: "top", textAlign: "right" }}
           >
-            <p style={{ fontSize: "18px" }}>
+            <p>
               ({value.start} - {value.end})
             </p>
-            <p style={{ fontSize: "18px" }}>Team Size - {value.teamSize}</p>
+            <p>Team Size - {value.teamSize}</p>
           </td>
         </tr>
       );
@@ -78,12 +79,12 @@ class Layout1 extends Component {
             style={{ textAlignVertical: "top", textAlign: "left" }}
           >
             <p>
-              <b style={{ fontSize: "18px" }}>{value.projectName}</b>
+              <b>{value.projectName}</b>
             </p>
-            <p style={{ fontSize: "18px" }}>{value.description}</p>
+            <p>{value.description}</p>
             <p>
-              <i style={{ fontSize: "18px" }}>
-                <b style={{ fontSize: "18px" }}>Guide:</b> {value.supervisor}
+              <i>
+                <b>Guide:</b> <h6 className="text1">{value.supervisor}</h6>
               </i>
             </p>
           </td>
@@ -91,10 +92,10 @@ class Layout1 extends Component {
             className="w-20"
             style={{ textAlignVertical: "top", textAlign: "right" }}
           >
-            <p style={{ fontSize: "18px" }}>
+            <p>
               ({value.start} - {value.end})
             </p>
-            <p style={{ fontSize: "18px" }}>Team Size - {value.teamSize}</p>
+            <p>Team Size - {value.teamSize}</p>
           </td>
         </tr>
       );
@@ -114,7 +115,7 @@ class Layout1 extends Component {
           style={{ padding: "0px", margin: "0px", textAlign: "left" }}
         >
           <li>
-            {index + 1}. {value.information}
+            <p>{index + 1}. {value.information}</p>
           </li>
         </ul>
       );
@@ -134,7 +135,7 @@ class Layout1 extends Component {
           style={{ padding: "0px", margin: "0px", textAlign: "left" }}
         >
           <li>
-            {index + 1}. {value.information}
+            <p>{index + 1}. {value.information}</p>
           </li>
         </ul>
       );
@@ -154,7 +155,9 @@ class Layout1 extends Component {
           style={{ padding: "0px", margin: "0px", textAlign: "left" }}
         >
           <li>
+            <p>
             {index + 1}. {value.information}
+            </p>
           </li>
         </ul>
       );
@@ -173,15 +176,15 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="4" className="section-header">
-              <h3>EDUCATION</h3>
+              <h3 className="heading">EDUCATION</h3>
             </td>
           </tr>
 
           <tr>
-            <th colSpan="1">Degree</th>
-            <th colSpan="1">University/Institute</th>
-            <th colSpan="1">Year</th>
-            <th colSpan="1">CPI/Aggregate</th>
+            <th colSpan="1"><p>Degree </p></th>
+            <th colSpan="1"><p>University/Institute </p></th>
+            <th colSpan="1"><p>Year </p></th>
+            <th colSpan="1"><p>CPI/Aggregate </p></th>
           </tr>
         </thead>
 
@@ -206,7 +209,7 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="2" className="section-header">
-              <h3>SKILLS</h3>
+              <h3 className="heading">SKILLS</h3>
             </td>
           </tr>
         </thead>
@@ -214,40 +217,40 @@ class Layout1 extends Component {
         <tbody>
           <tr className={this.props.areaOfInterest.length > 0 ? "" : "hide"}>
             <td className="w-30">
-              <b style={{ fontSize: "18px" }}>
+              <b>
                 Expertise Area/Area(s) of Interest
               </b>
             </td>
 
             <td className="w-70" style={{ textAlign: "left" }}>
-              {this.props.areaOfInterest}
+              <h6 className="text1">{this.props.areaOfInterest}</h6>
             </td>
           </tr>
 
           <tr className={this.props.proLanguages.length > 0 ? "" : "hide"}>
             <td className="w-30">
-              <b style={{ fontSize: "18px" }}>Programming Language(s)</b>
+              <b >Programming Language(s)</b>
             </td>
             <td className="w-70" style={{ textAlign: "left" }}>
-              {this.props.proLanguages}
+            <h6 className="text1">{this.props.proLanguages}</h6>
             </td>
           </tr>
 
           <tr className={this.props.toolsAndTech.length > 0 ? "" : "hide"}>
             <td className="w-30">
-              <b style={{ fontSize: "18px" }}>Tools and Technologies</b>
+              <b>Tools and Technologies</b>
             </td>
             <td className="w-70" style={{ textAlign: "left" }}>
-              {this.props.toolsAndTech}
+            <h6 className="text1">{this.props.toolsAndTech}</h6>
             </td>
           </tr>
 
           <tr className={this.props.techElectives.length > 0 ? "" : "hide"}>
             <td className="w-30">
-              <b style={{ fontSize: "18px" }}>Technical Electives</b>
+              <b>Technical Electives</b>
             </td>
             <td className="w-70" style={{ textAlign: "left" }}>
-              {this.props.techElectives}
+            <h6 className="text1">{this.props.techElectives}</h6>
             </td>
           </tr>
         </tbody>
@@ -265,7 +268,7 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="3" className="section-header">
-              <h3>PROFESSIONAL EXPERIENCE/INTERNSHIPS</h3>
+              <h3 className="heading">PROFESSIONAL EXPERIENCE/INTERNSHIPS</h3>
             </td>
           </tr>
         </thead>
@@ -285,7 +288,7 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="2" className="section-header">
-              <h3>PROJECTS</h3>
+              <h3 className="heading">PROJECTS</h3>
             </td>
           </tr>
         </thead>
@@ -305,7 +308,7 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="2" className="section-header">
-              <h3>POSITION OF RESPONSIBILITY</h3>
+              <h3 className="heading">POSITION OF RESPONSIBILITY</h3>
             </td>
           </tr>
         </thead>
@@ -323,7 +326,7 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="2" className="section-header">
-              <h3>AWARDS AND ACHIEVEMENTS</h3>
+              <h3 className="heading">AWARDS AND ACHIEVEMENTS</h3>
             </td>
           </tr>
         </thead>
@@ -341,7 +344,7 @@ class Layout1 extends Component {
         <thead>
           <tr>
             <td colSpan="2" className="section-header">
-              <h3>INTERESTS AND HOBBIES</h3>
+              <h3 className="heading">INTERESTS AND HOBBIES</h3>
             </td>
           </tr>
         </thead>
@@ -376,10 +379,11 @@ class Layout1 extends Component {
   };
 
   render() {
+    
     return (
       <div>
-        <div className="resume-render-wrapper">
-          <div className="resume-template">
+        <div className="resume-render-wrapper1" >
+          <div className="resume-template1">
             <table className="main" style={{ marignBottom: "20px" }}>
               <thead>
                 <tr>
@@ -392,25 +396,25 @@ class Layout1 extends Component {
                       this.props.image === null ? "intro w-100" : "intro w-80"
                     }
                   >
-                    <h1>{this.props.fullName}</h1>
+                    <h1 className="heading">{this.props.fullName}</h1>
                     <p>
-                      <b style={{ fontSize: "18px" }}>
+                      <b>
                         {this.props.collegeName}
                       </b>
                     </p>
                     <p>
-                      <span className="w-60 inline-block">
-                        <b style={{ fontSize: "18px" }}>Email:</b>{" "}
+                      <span className="w-60 inline-block text1">
+                        <b >Email:</b>{" "}
                         {this.props.email}
                       </span>
-                      <span className="w-40 text-right">
-                        <b style={{ fontSize: "18px" }}>DOB:</b>{" "}
+                      <span className="w-40 text-right text1">
+                        <b>DOB:</b>{" "}
                         {this.props.dob}
                       </span>
                     </p>
                     <p>
-                      <b style={{ fontSize: "18px" }}>Address:</b>{" "}
-                      {this.props.address}
+                      <b>Address:</b>{" "}
+                      <h6 className="text1">{this.props.address}</h6>
                     </p>
                   </td>
                 </tr>

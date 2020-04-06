@@ -37,9 +37,10 @@ const EducationInfoComp = props => {
     };
   };
   const [, drop] = useDrop({ accept: "block" });
+  
   return (
     <div ref={drop}>
-      <Accordion defaultActiveKey="">
+      <Accordion defaultActiveKey="" >
         {blocks.map((block, index) => (
           <EducationBlock
             key={block.id}

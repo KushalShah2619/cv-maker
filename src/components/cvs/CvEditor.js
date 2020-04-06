@@ -53,7 +53,7 @@ class CvEditor extends Component {
     return this.state.isLoading ? (
       <Loader />
     ) : (
-      <div className="container-fluid">
+      <div style={{padding: '0', margin: '0'}}>
         {this.state.templateId === 1 ? (
           <SidebarAndLayout1
             id={this.props.match.params.id}

@@ -8,6 +8,8 @@ import ProjectInfo from "./components/ProjectInfo";
 import PositionInfo from "./components/PositionInfo";
 import AwardInfo from "./components/AwardInfo";
 import HobbyInfo from "./components/HobbyInfo";
+import "./style/SidebarStyle.css";
+
 
 const Block = ({ cvid, id, moveBlock, findBlock, eventKey }) => {
   const originalIndex = findBlock(id).index;
@@ -35,8 +37,12 @@ const Block = ({ cvid, id, moveBlock, findBlock, eventKey }) => {
     }
   });
   const opacity = isDragging ? 0 : 1;
+  const card = {
+    backgroundColor : "#202020"
+    
+  }
   return (
-    <Card ref={preview}>
+    <Card ref={preview} className="bgcolor" style={card}>
       <Accordion.Toggle as={Card.Header} eventKey={eventKey}>
         {id === 1 ? "Education" : null}
         {id === 2 ? "Skills" : null}

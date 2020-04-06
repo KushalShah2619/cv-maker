@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import firestore from "./../../firebase/firestore";
 import Loader from "./../loader/Loader";
+import '../style/cvtitleStyle.css'
 
 const orderOfBlocks = [
   {
@@ -107,21 +108,33 @@ class CreateCV extends Component {
     return this.state.isLoading ? (
       <Loader />
     ) : (
-      <div className="container">
-        <form onSubmit={this.handleAddCv}>
-          <div className="form-group">
-            <label>CV Title</label>
-            <input
-              type="text"
-              className="form-control"
-              id="title"
-              onChange={this.handleChangeCvTitle}
-            />
+      <div className="containerTitle">
+        <div className="bgtitle"></div>
+        <form onSubmit={this.handleAddCv}
+              className = "form-conatinerTitle"
+        >
+          <div className="form-groupTitle">
+            <center>  
+              <label className = 'title2Title'>
+                CV Title
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="title"
+                onChange={this.handleChangeCvTitle}
+              />
+            </center>
           </div>
-          <div className="form-group">
-            <button className="btn btn-primary" type="submit">
-              Create
-            </button>
+          <div className="form-groupTitle">
+            <center>
+              <button className="btn btn-primary"
+                      type="submit"
+                      style={{margin: '10px'}}
+              >
+                Create
+              </button>
+            </center>
           </div>
         </form>
       </div>

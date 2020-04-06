@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from "react-bootstrap/Form";
 import firestore from "./../../../../firebase/firestore";
+import "./CompStyle.css";
 
 class PersonalInfo extends Component {
   componentDidUpdate() {
@@ -131,12 +132,17 @@ class PersonalInfo extends Component {
   };
 
   render() {
+    const bgcolor = {
+      backgroundColor:"#202020",
+      color:"white",
+      border:"none"
+    }
     return (
       <div>
-        <Form>
+        <Form style={bgcolor}>
           <Form.Group controlId="formGroupFullName">
             <Form.Label>Name</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="Full Name"
               onChange={this.handleChangeName}
@@ -146,7 +152,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupCollegeName">
             <Form.Label>College Name</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="College name"
               onChange={this.handleChangeCollegeName}
@@ -156,7 +162,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="email"
               placeholder="Email"
               onChange={this.handleChangeEmail}
@@ -166,7 +172,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupDOB">
             <Form.Label>Date of Birth</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="April 15, 2020"
               onChange={this.handleChangeDOB}
@@ -176,7 +182,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupAddress">
             <Form.Label>Address</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               as="textarea"
               rows="3"
               placeholder="Address"

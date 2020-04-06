@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 import { connect } from "react-redux";
+import NavbarOriginal from "react-bootstrap/Navbar";
+import {Nav} from "react-bootstrap";
 
 const Navbar = ({ auth, profile }) => {
   const links = auth.uid ? (
@@ -11,14 +13,18 @@ const Navbar = ({ auth, profile }) => {
     <SignedOutLinks />
   );
   return (
-    <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
-          CV Maker
-        </Link>
-        <div className="collapse navbar-collapse">{links}</div>
-      </div>
-    </nav>
+    <NavbarOriginal bg="dark" variant="dark" sticky="top" style={{paddingTop: '0', paddingBottom: '0'}}>
+      <NavbarOriginal.Brand href="/">
+        CV Maker
+      </NavbarOriginal.Brand>
+      <NavbarOriginal.Collapse className="justify-content-end">
+        <Nav>
+          <Nav.Link >{links}</Nav.Link>
+        </Nav>
+      </NavbarOriginal.Collapse>
+    </NavbarOriginal>
+
+    
   );
 };
 const mapStatesToProps = state => {

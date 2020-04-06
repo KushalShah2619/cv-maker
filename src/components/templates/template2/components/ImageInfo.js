@@ -5,6 +5,7 @@ import storage from "./../../../../firebase/storage";
 import firestore from "./../../../../firebase/firestore";
 import firebase from "./../../../../firebase/fbConfig";
 import Loader from "./../../../loader/Loader";
+import "./compoStyle/componentsStyle.css";
 
 function dataURLtoFile(dataurl, filename) {
   var arr = dataurl.split(","),
@@ -251,6 +252,11 @@ class ImageInfo extends Component {
   };
 
   render() {
+    const card = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white"
+    }
     if (this.state.isLoading) {
       return (
         <div className="text-center">
@@ -262,14 +268,14 @@ class ImageInfo extends Component {
     } else if (this.props.img === null) {
       return (
         <div>
-          <Card body border="primary" style={{ margin: "10px 0px" }}>
+          <Card body className="inputStyle" style={card}>
             <Form.Group
               controlId="formGroupImg"
               style={{ display: "inline-block", float: "left" }}
             >
               <input type="file" onChange={this.handleSavedImage} />
             </Form.Group>
-            <Button variant="primary" onClick={this.handleUploadImage}>
+            <Button className="add" onClick={this.handleUploadImage}>
               {" "}
               + Upload{" "}
             </Button>
@@ -278,7 +284,10 @@ class ImageInfo extends Component {
       );
     } else if (this.props.img) {
       return (
-        <Button variant="danger" onClick={this.handleRemoveImage}>
+        <Button className="remove" 
+        onClick={this.handleRemoveImage}
+        style={{border:"none"}}
+        >
           {" "}
           - Remove Image{" "}
         </Button>

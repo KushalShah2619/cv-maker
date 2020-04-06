@@ -15,7 +15,7 @@ class Layout2 extends Component {
           className="list points"
           style={{ padding: "0px", margin: "0px" }}
         >
-          <li style={{ fontSize: "14px" }}>{value.descInfo}</li>
+          <li className="small1">{value.descInfo}</li>
         </ul>
       );
     }
@@ -33,7 +33,7 @@ class Layout2 extends Component {
           className="list points"
           style={{ padding: "0px", margin: "0px" }}
         >
-          <li style={{ fontSize: "14px" }}>{value.keyAchvInfo}</li>
+          <li className="small1">{value.keyAchvInfo}</li>
         </ul>
       );
     }
@@ -48,7 +48,7 @@ class Layout2 extends Component {
       newExpBlocks.push(
         <Row key={index}>
           <Col sm={2} className="timeRange">
-            {value.start} - {value.end}
+            <h6 className="date">{value.start} - {value.end}</h6>
           </Col>
 
           <Col sm={10}>
@@ -85,7 +85,7 @@ class Layout2 extends Component {
       newDegreeBlocks.push(
         <Row key={index}>
           <Col sm={2} className="timeRange">
-            {value.year}
+          <h6 className="date">{value.year}</h6>
           </Col>
 
           <Col sm={10} style={{ textAlign: "left" }}>
@@ -108,7 +108,7 @@ class Layout2 extends Component {
       newAwardBlocks.push(
         <Row key={index}>
           <Col sm={2} className="timeRange">
-            {value.year}
+          <h6 className="text1">{value.year}</h6>
           </Col>
 
           <Col sm={10} style={{ textAlign: "left" }}>
@@ -203,7 +203,7 @@ class Layout2 extends Component {
           className="list points"
           style={{ padding: "0px", margin: "0px" }}
         >
-          <li style={{ fontSize: "14px" }}>{value.information}</li>
+          <li className="small1">{value.information}</li>
         </ul>
       );
     }
@@ -226,8 +226,8 @@ class Layout2 extends Component {
 
     return (
       <div>
-        <div className="resume-render-wrapper">
-          <div className="resume-template">
+        <div className="resume-render-wrapper2">
+          <div className="resume-template2">
             <table className="main" style={{ marignBottom: "20px" }}>
               <thead>
                 <tr>
@@ -244,7 +244,7 @@ class Layout2 extends Component {
                       this.props.image === null ? "body1" : "bodyImg w-100"
                     }
                   >
-                    <h3>{this.props.fullName}</h3>
+                    <h3 className="heading">{this.props.fullName}</h3>
                     <p>
                       <b className="posTitle">{this.props.curPos}</b>
                     </p>
@@ -256,7 +256,7 @@ class Layout2 extends Component {
             <div className="outer">
               <div className="leftSide">
                 <table className="section text-left">
-                  {this.props.description}
+                <h6 className="text1">{this.props.description}</h6>
                 </table>
 
                 <table
@@ -268,7 +268,7 @@ class Layout2 extends Component {
                 >
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Experience</h4>
+                      <h4 className="heading">Experience</h4>
                     </tr>
                   </thead>
 
@@ -284,7 +284,7 @@ class Layout2 extends Component {
                 >
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Education</h4>
+                      <h4 className="heading">Education</h4>
                     </tr>
                   </thead>
 
@@ -298,7 +298,7 @@ class Layout2 extends Component {
                 >
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Honours And Awards</h4>
+                      <h4 className="heading">Honours And Awards</h4>
                     </tr>
                   </thead>
 
@@ -310,7 +310,7 @@ class Layout2 extends Component {
                 <table className="section">
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Personal Info</h4>
+                      <h4 className="heading2" style={{fontWeight:"bold"}}>Personal Info</h4>
                     </tr>
                   </thead>
 
@@ -350,7 +350,7 @@ class Layout2 extends Component {
                 >
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Skills</h4>
+                      <h4 className="heading2" style={{fontWeight:"bold"}}>Skills</h4>
                     </tr>
                   </thead>
 
@@ -364,7 +364,7 @@ class Layout2 extends Component {
                 >
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Languages</h4>
+                      <h4 className="heading2" style={{fontWeight:"bold"}}>Languages</h4>
                     </tr>
                   </thead>
 
@@ -378,7 +378,7 @@ class Layout2 extends Component {
                 >
                   <thead>
                     <tr className="section-header">
-                      <h4 style={{ fontWeight: "bold" }}>Interests</h4>
+                      <h4 className="heading2" style={{fontWeight:"bold"}}>Interests</h4>
                     </tr>
                   </thead>
 

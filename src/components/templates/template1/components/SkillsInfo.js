@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, Card } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./CompStyle.css";
 
 class SkillsInfo extends Component {
   componentDidUpdate() {
@@ -108,14 +109,22 @@ class SkillsInfo extends Component {
   };
 
   render() {
+
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+
     return (
       <div>
-        <Form>
-          <Card body border="primary" style={{ margin: "10px 0px" }}>
+        <Form >
+          <Card body  style={bgcolor} >
             <Form.Group controlId="formGroupAOI">
               {/*Area of Interest*/}
               <Form.Label>Expertise Area/Area(s) of Interest</Form.Label>
-              <Form.Control
+              <Form.Control className="inputStyle" style={bgcolor}
                 as="textarea"
                 rows="3"
                 placeholder="Web Development, Machine Learning..."
@@ -125,12 +134,12 @@ class SkillsInfo extends Component {
             </Form.Group>
           </Card>
 
-          <Card body border="primary" style={{ margin: "10px 0px" }}>
+          <Card body style={bgcolor}>
             <Form.Group controlId="formGroupPL">
               {" "}
               {/* Programming Languages */}
               <Form.Label>Programming Language(s)</Form.Label>
-              <Form.Control
+              <Form.Control className="inputStyle" style={bgcolor}
                 as="textarea"
                 rows="3"
                 placeholder="C++, Python..."
@@ -140,12 +149,12 @@ class SkillsInfo extends Component {
             </Form.Group>
           </Card>
 
-          <Card body border="primary" style={{ margin: "10px 0px" }}>
+          <Card body style={bgcolor}>
             <Form.Group controlId="formGroupTT">
               {" "}
               {/* Tools and Technologies */}
               <Form.Label>Tools and Technologies</Form.Label>
-              <Form.Control
+              <Form.Control className="inputStyle" style={bgcolor}
                 as="textarea"
                 rows="3"
                 placeholder="React JS, Redux, Firebase..."
@@ -155,12 +164,12 @@ class SkillsInfo extends Component {
             </Form.Group>
           </Card>
 
-          <Card body border="primary" style={{ margin: "10px 0px" }}>
+          <Card body style={bgcolor}>
             <Form.Group controlId="formGroupTE">
               {" "}
               {/* Technical Electives */}
               <Form.Label>Technical Electives</Form.Label>
-              <Form.Control
+              <Form.Control className="inputStyle" style={bgcolor}
                 as="textarea"
                 rows="3"
                 placeholder="Software Engineering, Operating System..."

@@ -18,114 +18,123 @@ class SidebarAndLayout2 extends Component {
     this.props.updatePrevUrl(window.location.pathname);
   }
   render() {
+    const bgcolor = {
+      backgroundColor : "#202020",
+      
+    }
+    const styles = {
+      backgroundColor : "#202020",
+      color: "white"
+      
+    }
     return (
       <div>
-        <h3 className="text-center">{this.props.title}</h3>
+        <h3 className="text-center cvtitle">{this.props.title}</h3>
+        <div className="screenView2">
+          <div className="sidebar2">
+            <Accordion defaultActiveKey=" ">
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m0">
+                  Upload Image
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m0">
+                  <Card.Body>
+                    <ImageInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-        <div className="sidebar">
-          <Accordion defaultActiveKey=" ">
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m0">
-                Upload Image
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m0">
-                <Card.Body>
-                  <ImageInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m1">
+                  Personal Information
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m1">
+                  <Card.Body>
+                    <PersonalInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m1">
-                Personal Information
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m1">
-                <Card.Body>
-                  <PersonalInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m2">
+                  Description
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m2">
+                  <Card.Body>
+                    <DescriptionInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m2">
-                Description
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m2">
-                <Card.Body>
-                  <DescriptionInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m3">
+                  Experience
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m3">
+                  <Card.Body>
+                    <ExpInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m3">
-                Experience
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m3">
-                <Card.Body>
-                  <ExpInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m4">
+                  Education
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m4">
+                  <Card.Body>
+                    <EducationInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m4">
-                Education
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m4">
-                <Card.Body>
-                  <EducationInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m5">
+                  Honours or Awards
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m5">
+                  <Card.Body>
+                    <AwardInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m5">
-                Honours or Awards
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m5">
-                <Card.Body>
-                  <AwardInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m6">
+                  Skills
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m6">
+                  <Card.Body>
+                    <SkillsInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m6">
-                Skills
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m6">
-                <Card.Body>
-                  <SkillsInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m7">
+                  Languages
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m7">
+                  <Card.Body>
+                    <LanguageInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
 
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m7">
-                Languages
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m7">
-                <Card.Body>
-                  <LanguageInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
-
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="m8">
-                Interests and Hobbies
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="m8">
-                <Card.Body>
-                  <HobbyInfo id={this.props.id} />
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          </Accordion>
-
+              <Card style={styles} className="bgcolor">
+                <Accordion.Toggle as={Card.Header} eventKey="m8">
+                  Interests and Hobbies
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="m8">
+                  <Card.Body>
+                    <HobbyInfo id={this.props.id} />
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            </Accordion>
+          </div>
           <div className="template2">
-            <Layout2 />
+              <Layout2 />
           </div>
         </div>
       </div>

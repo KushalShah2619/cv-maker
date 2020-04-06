@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from "react-bootstrap/Form";
 import firestore from "./../../../../firebase/firestore";
+import "./compoStyle/componentsStyle.css";
 
 class PersonalInfo extends Component {
   handleChangeCurPos = event => {
@@ -169,12 +170,18 @@ class PersonalInfo extends Component {
 
   render() {
     //console.log(this.props);
+    const bgcolor = {
+      backgroundColor:"#202020",
+      color:"white",
+      border:"none",
+      
+    }
     return (
       <div>
-        <Form>
+        <Form style={bgcolor}>
           <Form.Group controlId="formGroupFullName">
             <Form.Label>Name</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="Full Name"
               onChange={this.handleChangeName}
@@ -184,7 +191,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupCurPos">
             <Form.Label>Current Position</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="Software Devlopment Engineer"
               onChange={this.handleChangeCurPos}
@@ -194,7 +201,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupAddress">
             <Form.Label>Address</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               as="textarea"
               rows="3"
               placeholder="Address"
@@ -205,7 +212,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupDOB">
             <Form.Label>Date of Birth</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="April 15, 2020"
               onChange={this.handleChangeDOB}
@@ -215,7 +222,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="email"
               placeholder="Email"
               onChange={this.handleChangeEmail}
@@ -225,7 +232,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupPhone">
             <Form.Label>Contact No.</Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="+91 1234567890"
               onChange={this.handleChangePhoneNo}
@@ -235,7 +242,7 @@ class PersonalInfo extends Component {
 
           <Form.Group controlId="formGroupLink">
             <Form.Label>LinkedIn: </Form.Label>
-            <Form.Control
+            <Form.Control className="inputStyle" style={bgcolor}
               type="text"
               placeholder="linkedin.com/in/name"
               onChange={this.handleChangeLink}

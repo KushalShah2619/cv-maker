@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, Card } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./compoStyle/componentsStyle.css";
 
 class DescriptionInfo extends Component {
   handleChangeDescription = event => {
@@ -24,10 +25,6 @@ class DescriptionInfo extends Component {
   }
   componentDidMount() {
     firestore
-      .collection("users")
-      .doc(this.props.auth.uid)
-      .collection("cvs")
-      .doc(this.props.id)
       .collection("description")
       .doc(this.props.id)
       .get()
@@ -54,12 +51,17 @@ class DescriptionInfo extends Component {
       });
   }
   render() {
+    const bgcolor = {
+      backgroundColor:"#202020",
+      color:"white",
+      border:"none"
+    }
     return (
       <div>
-        <Form>
+        <Form >
           <Form.Group controlId="formGroupDescription">
             <Form.Label>Your Description..</Form.Label>
-            <Form.Control
+            <Form.Control style={bgcolor} className="inputStyle"
               as="textarea"
               rows="3"
               placeholder="Description.."

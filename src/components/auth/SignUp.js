@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import firebase from "./../../firebase/fbConfig";
 import firestore from "./../../firebase/firestore";
 import Loader from "./../loader/Loader";
+import '../style/signupStyle.css'
 
 class SignUp extends Component {
   state = {
@@ -55,11 +56,18 @@ class SignUp extends Component {
     return this.state.isLoading ? (
       <Loader />
     ) : (
-      <div className="container">
-        <form onSubmit={this.handleSubmit}>
-          <h5>Sign Up</h5>
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
+      <div className="conatinerSignUp">
+        <div className="bgsignup"></div>
+          <form onSubmit={this.handleSubmit}
+                className='form-conatinerSignUp'
+          >
+            <h5 className='title1SignUp'>Sign Up</h5>
+            <div className="form-groupSignUp">
+            <label htmlFor="firstName"
+                    className='title2SignUp'
+            >
+              First Name
+            </label>
             <input
               type="text"
               className="form-control"
@@ -68,8 +76,12 @@ class SignUp extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
+          <div className="form-groupSignUp">
+            <label htmlFor="lastName"
+                   className='title2SignUp'
+            >
+              Last Name
+            </label>
             <input
               type="text"
               className="form-control"
@@ -78,8 +90,12 @@ class SignUp extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
+          <div className="form-groupSignUp">
+            <label htmlFor="email"
+                  className='title2SignUp'
+            >
+              Email
+            </label>
             <input
               type="email"
               className="form-control"
@@ -88,8 +104,12 @@ class SignUp extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div className="form-groupSignUp">
+            <label htmlFor="password"
+                  className='title2SignUp'
+            >
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
@@ -98,14 +118,16 @@ class SignUp extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Sign Up
-          </button>
-          <div className="form-group">
-            {authError ? <p>{authError}</p> : null}
+          <center style={{margin:'10px'}}>
+            <button type="submit" className="btn btn-primary">
+              Sign Up
+            </button>
+          </center>
+          <div className="form-groupSignUp">
+            {authError ? <p style={{color:'red'}}>{authError}</p> : null}
           </div>
-          <div className="form-group">
-            {this.state.error ? <p>{this.state.error}</p> : null}
+          <div className="form-groupSignUp">
+            {this.state.error ? <p style={{color:'red'}}>{this.state.error}</p> : null}
           </div>
         </form>
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./compoStyle/componentsStyle.css";
 
 class ExpInfo extends Component {
   handleAddExperienceBlock = e => {
@@ -291,18 +292,27 @@ class ExpInfo extends Component {
       });
   }
   render() {
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+    const accordStyle = {
+     boxShadow: "inset 0 -1px 2px #303030"
+    }
     return (
       <div>
         <Accordion defaultActiveKey=" ">
           {this.props.expBlocks.map((value, index) => {
             return (
-              <Card key={value.id}>
-                <Accordion.Toggle as={Card.Header} eventKey={index}>
+              <Card key={value.id} style={bgcolor}>
+                <Accordion.Toggle as={Card.Header} eventKey={index} style={accordStyle}>
                   Experience #{index + 1}
                   <Button
-                    className="float-right"
+                    className="float-right remove"
                     size="sm"
-                    variant="danger"
+                    style={{border:"none"}}
                     onClick={() => {
                       this.handleRemoveExperienceBlock(value.id);
                     }}
@@ -316,7 +326,7 @@ class ExpInfo extends Component {
                     <Form>
                       <Form.Group controlId="formGroupPositionName">
                         <Form.Label>Position in Organization</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Software Devlopment Engineer"
                           onChange={event => {
@@ -330,7 +340,7 @@ class ExpInfo extends Component {
 
                       <Form.Group controlId="formGroupOrganizationName">
                         <Form.Label>Organization Name</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Microsoft"
                           onChange={event => {
@@ -344,7 +354,7 @@ class ExpInfo extends Component {
 
                       <Form.Group controlId="formGroupJoinDate">
                         <Form.Label>Join Date</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="2020-01"
                           onChange={event => {
@@ -356,7 +366,7 @@ class ExpInfo extends Component {
 
                       <Form.Group controlId="formGroupLeaveDate">
                         <Form.Label>Leave Date</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="2020-12"
                           onChange={event => {
@@ -367,8 +377,8 @@ class ExpInfo extends Component {
                       </Form.Group>
 
                       <Accordion defaultActiveKey="">
-                        <Card>
-                          <Accordion.Toggle
+                        <Card style={bgcolor}>
+                          <Accordion.Toggle style={accordStyle}
                             as={Card.Header}
                             eventKey={value.id}
                           >
@@ -377,20 +387,21 @@ class ExpInfo extends Component {
 
                           <Accordion.Collapse eventKey={value.id}>
                             <div>
-                              <Card.Body>
+                              <Card.Body style={bgcolor}>
                                 <Accordion defaultActiveKey=" ">
                                   {value.descBlocks.map((val, ind) => {
                                     return (
-                                      <Card key={val.descId}>
+                                      <Card key={val.descId} style={bgcolor}>
                                         <Accordion.Toggle
                                           as={Card.Header}
                                           eventKey={val.descId}
+                                          style={accordStyle}
                                         >
                                           Description #{ind + 1}
                                           <Button
-                                            className="float-right"
+                                            className="float-right remove"
                                             size="sm"
-                                            variant="danger"
+                                            style={{border:"none"}}
                                             onClick={() => {
                                               this.handleRemoveDescBlock(
                                                 value.id,
@@ -407,11 +418,11 @@ class ExpInfo extends Component {
                                         >
                                           <div>
                                             <Card.Body>
-                                              <Form.Group controlId="formGroupDescription">
+                                              <Form.Group controlId="formGroupDescription" style={bgcolor}>
                                                 <Form.Label>
                                                   Description
                                                 </Form.Label>
-                                                <Form.Control
+                                                <Form.Control className="inputStyle" style={bgcolor}
                                                   as="textarea"
                                                   col="2"
                                                   placeholder="Key points about experience according to position"
@@ -437,8 +448,8 @@ class ExpInfo extends Component {
                                 </Accordion>
 
                                 <Button
-                                  variant="primary"
-                                  className="float-right"
+                                  
+                                  className="float-right add"
                                   size="md"
                                   style={{ margin: "4px 2px" }}
                                   onClick={() => {
@@ -453,10 +464,11 @@ class ExpInfo extends Component {
                           </Accordion.Collapse>
                         </Card>
 
-                        <Card>
+                        <Card style={bgcolor}>
                           <Accordion.Toggle
                             as={Card.Header}
                             eventKey={index + 100}
+                            style={accordStyle}
                           >
                             Key Achievements
                           </Accordion.Toggle>
@@ -467,16 +479,17 @@ class ExpInfo extends Component {
                                 <Accordion defaultActiveKey=" ">
                                   {value.keyAchvBlocks.map((val, ind) => {
                                     return (
-                                      <Card key={val.keyAchvId}>
+                                      <Card key={val.keyAchvId} style={bgcolor}>
                                         <Accordion.Toggle
                                           as={Card.Header}
-                                          eventKey={val.keyAchId}
+                                          eventKey={ind+1000}
+                                          style={accordStyle}
                                         >
                                           Achievement #{ind + 1}
                                           <Button
-                                            className="float-right"
+                                            className="float-right remove"
                                             size="sm"
-                                            variant="danger"
+                                            style={{border:"none"}}
                                             onClick={() => {
                                               this.handleRemoveKeyAchvBlock(
                                                 value.id,
@@ -489,7 +502,7 @@ class ExpInfo extends Component {
                                         </Accordion.Toggle>
 
                                         <Accordion.Collapse
-                                          eventKey={val.keyAchId}
+                                          eventKey={ind+1000}
                                         >
                                           <div>
                                             <Card.Body>
@@ -497,7 +510,7 @@ class ExpInfo extends Component {
                                                 <Form.Label>
                                                   Key Achievement
                                                 </Form.Label>
-                                                <Form.Control
+                                                <Form.Control style={bgcolor} className="inputStyle"
                                                   as="textarea"
                                                   col="2"
                                                   placeholder="Key points about achievements according to position"
@@ -524,8 +537,8 @@ class ExpInfo extends Component {
                                 </Accordion>
 
                                 <Button
-                                  variant="primary"
-                                  className="float-right"
+                                  
+                                  className="float-right add"
                                   size="md"
                                   style={{ margin: "4px 2px" }}
                                   onClick={() => {
@@ -549,7 +562,7 @@ class ExpInfo extends Component {
         </Accordion>
 
         <Button
-          variant="primary"
+          className="add"
           style={{ margin: "5px" }}
           onClick={this.handleAddExperienceBlock}
         >
@@ -562,7 +575,7 @@ class ExpInfo extends Component {
 }
 
 const mapStateToProps = state => {
-  //console.log(state);
+  //console.log('!',state);
   return {
     auth: state.firebase.auth,
     expBlocks: state.expRed_2.expBlocks_2

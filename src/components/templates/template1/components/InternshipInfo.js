@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
+import "./CompStyle.css";
 
 class InternshipInfo extends Component {
   handleAddInternshipBlock = event => {
@@ -258,18 +259,29 @@ class InternshipInfo extends Component {
   };
 
   render() {
+
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+    const accordStyle = {
+     boxShadow: "inset 0 -1px 2px #303030"
+    }
+
     return (
       <div>
         <Accordion defaultActiveKey=" ">
           {this.props.internshipBlocks.map((value, index) => {
             return (
-              <Card key={value.id}>
-                <Accordion.Toggle as={Card.Header} eventKey={index}>
+              <Card key={value.id} style={bgcolor}>
+                <Accordion.Toggle as={Card.Header} eventKey={index} style={accordStyle}>
                   Internship #{index + 1}
                   <Button
-                    className="float-right"
+                    className="float-right remove"
                     size="sm"
-                    variant="danger"
+                    style={{border:"none"}}
                     onClick={() => {
                       this.handleRemoveInternshipBlock(value.id);
                     }}
@@ -279,10 +291,10 @@ class InternshipInfo extends Component {
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey={index}>
                   <Card.Body>
-                    <Form>
+                    <Form style={bgcolor}>
                       <Form.Group controlId="formGroupOrganizationName">
                         <Form.Label>Organization/Institute Name</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Microsoft/DA-IICT"
                           onChange={event => {
@@ -296,7 +308,7 @@ class InternshipInfo extends Component {
 
                       <Form.Group controlId="formGroupDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           as="textarea"
                           row="2"
                           placeholder="Description about internship..."
@@ -311,7 +323,7 @@ class InternshipInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>Guide/Supervisor</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Prof./Mr./Mrs./Ms. X"
                           onChange={event => {
@@ -325,7 +337,7 @@ class InternshipInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>Start Time</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="February, 2020"
                           onChange={event => {
@@ -339,7 +351,7 @@ class InternshipInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>End Time</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="April, 2020"
                           onChange={event => {
@@ -351,7 +363,7 @@ class InternshipInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>Team Size</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="#4"
                           onChange={event => {
@@ -371,7 +383,7 @@ class InternshipInfo extends Component {
         </Accordion>
 
         <Button
-          variant="primary"
+          className="add"
           onClick={this.handleAddInternshipBlock}
           style={{ marginTop: "10px" }}
         >

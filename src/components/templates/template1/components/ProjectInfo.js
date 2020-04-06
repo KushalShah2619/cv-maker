@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Accordion, Card, Form, Button } from "react-bootstrap";
 import firestore from "./../../../../firebase/firestore";
-
+import "./CompStyle.css";
 class ProjectInfo extends Component {
   handleAddProjectBlock = event => {
     let tid = Date.now();
@@ -263,18 +263,29 @@ class ProjectInfo extends Component {
   };
 
   render() {
+
+    const bgcolor = {
+      backgroundColor:"#202020",
+      margin: "10px 0px",
+      color:"white",
+      border: "none"
+    }
+    const accordStyle = {
+     boxShadow: "inset 0 -1px 2px #303030"
+    }
+
     return (
       <div>
         <Accordion defaultActiveKey=" ">
           {this.props.projectBlocks.map((value, index) => {
             return (
-              <Card key={value.id}>
-                <Accordion.Toggle as={Card.Header} eventKey={index}>
+              <Card key={value.id} style={bgcolor}>
+                <Accordion.Toggle as={Card.Header} eventKey={index} style={accordStyle}>
                   Project #{index + 1}
                   <Button
-                    className="float-right"
+                    className="float-right remove"
                     size="sm"
-                    variant="danger"
+                    style={{border:"none"}}
                     onClick={() => {
                       this.handleRemoveProjectBlock(value.id);
                     }}
@@ -287,7 +298,7 @@ class ProjectInfo extends Component {
                     <Form>
                       <Form.Group controlId="projectName">
                         <Form.Label>Project Name</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Project Title"
                           onChange={event => {
@@ -301,7 +312,7 @@ class ProjectInfo extends Component {
 
                       <Form.Group controlId="formGroupDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           as="textarea"
                           row="2"
                           placeholder="Description about project..."
@@ -316,7 +327,7 @@ class ProjectInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>Guide</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="Prof. X"
                           onChange={event => {
@@ -330,7 +341,7 @@ class ProjectInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>Start Time</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="February, 2020"
                           onChange={event => {
@@ -342,7 +353,7 @@ class ProjectInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>End Time</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="April, 2020"
                           onChange={event => {
@@ -354,7 +365,7 @@ class ProjectInfo extends Component {
 
                       <Form.Group controlId="formGroupScore">
                         <Form.Label>Team Size</Form.Label>
-                        <Form.Control
+                        <Form.Control className="inputStyle" style={bgcolor}
                           type="text"
                           placeholder="#4"
                           onChange={event => {
@@ -374,7 +385,7 @@ class ProjectInfo extends Component {
         </Accordion>
 
         <Button
-          variant="primary"
+          className="add"
           onClick={this.handleAddProjectBlock}
           style={{ marginTop: "10px" }}
         >
